@@ -35,6 +35,10 @@
         $vendedor = mysqli_real_escape_string($db, $_POST['vendedor']);
         $creado = date('Y/m/d');
 
+        //Asignar files a una imagen
+        $imagen = $_FILES['imagen'];
+
+
         if (!$titulo){  
             $errores[]= "Debes agregar un título";
         }
@@ -57,15 +61,52 @@
             $errores[]= "Debes seleccionar un vendedor";
         }
 
+        if (!$imagen['name'] || $imagen['error'] ){
+            $errores[]= "La imagen es obligatoria";
+        }
+
+        // Validar imagen por tamaño (1Mb max)
+        $medida = 1000*1000;
+
+        if ($imagen['size']>$medida ){
+            $errores[]= "La imagen es muy pesada (max 100Kb)";
+
+        }
+
+
+
+
+
         //echo "<pre>";
         //echo var_dump($errores);
         //echo "<pre>";
 
         //Revisar que el arreglo de errores esta vacio
         if (empty($errores)){
+
+            //***Subida de archivos***
+
+            //Crear carpeta
+            $carpetaImg = '../../imagenes/';
+
+            if (!is_dir($carpetaImg)){
+
+                mkdir($carpetaImg,0777);
+
+            }
+
+            $nombreImg = md5(uniqid(rand(), true)) . ".jpg";
+
+            //Subir la imagen
+            move_uploaded_file($imagen['tmp_name'], $carpetaImg . $nombreImg);
+
+            
+
+
+
             //Insertar en la base de datos
-            $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, baños, estacionamiento, fecha,
-            vendedores_id) VALUES ('$titulo', '$precio', '$descripcion', '$rooms', '$wc', '$car', '$creado' , '$vendedor'); ";
+            $query = "INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, baños, estacionamiento, fecha,
+            vendedores_id) VALUES ('$titulo', '$precio', '$nombreImg', '$descripcion', '$rooms', '$wc', '$car', '$creado' , '$vendedor'); ";
 
             //echo $query;
             $resultado = mysqli_query($db,$query);
@@ -73,7 +114,7 @@
             if ($resultado){
                 // Redireccionar al usuario
 
-                header ('Location: ../index.php' );
+                header ('Location: ../index.php?resultado=1' );
             }
         }
 

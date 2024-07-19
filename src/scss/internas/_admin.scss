@@ -10,5 +10,30 @@
         background-color: $rojo;
 
     }
+
+    &.exito{
+        background-color: $verde;
+    }
+
 }
 
+table.propiedades{
+    margin-top: 5rem;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+
+
+    thead{
+        background-color: $verde;
+        padding: 2rem;
+    }
+
+    img{
+        width: 10rem;
+    }
+}
+
+.imagen-small{
+    width: 20rem;
+}
