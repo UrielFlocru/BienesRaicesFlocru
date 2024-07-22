@@ -1,4 +1,12 @@
 <?php
+    //Autenticacion
+    require '../includes/funciones.php';
+    $auth = autenticado();
+
+    if (!$auth){
+        header('Location: /bienesraices_Flocru/index.php');
+    }
+
     //Importar la conexion
     require '../includes/config/database.php';
     $db = conectarDb();
@@ -8,9 +16,6 @@
 
     //Consulta la base de datos
     $resultadoQuery = mysqli_query($db, $query);
-
-    //Importar funciones
-    require '../includes/funciones.php';
 
     //Resultado despues de agregar anuncio
     $resultado= $_GET['resultado'] ?? null;

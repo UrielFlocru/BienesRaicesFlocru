@@ -1,5 +1,13 @@
 <?php
 
+    //Autenticacion de usuario
+    require '../../includes/funciones.php';
+    $auth = autenticado();
+
+    if (!$auth){
+        header('Location: /bienesraices_Flocru/index.php');
+    }
+
     // Validar que sea int el id
 
     $id = $_GET['id'];
@@ -145,7 +153,7 @@
         
     }
     
-    require '../../includes/funciones.php';
+
     incluirTemplate('header');
 
     

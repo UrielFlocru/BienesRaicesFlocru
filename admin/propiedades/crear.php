@@ -1,4 +1,12 @@
 <?php
+    //Autenticacion
+    require '../../includes/funciones.php';
+    $auth = autenticado();
+
+    if (!$auth){
+        header('Location: /bienesraices_Flocru/index.php');
+    }
+
     //Database
     require '../../includes/config/database.php';
     $db = conectarDb();
@@ -121,7 +129,7 @@
         
     }
 
-    require '../../includes/funciones.php';
+
     incluirTemplate('header');
 
     
