@@ -1,11 +1,7 @@
 <?php
     //Autenticacion
     require '../includes/funciones.php';
-    $auth = autenticado();
-
-    if (!$auth){
-        header('Location: /bienesraices_Flocru/index.php');
-    }
+    autenticado();
 
     //Importar la conexion
     require '../includes/config/database.php';

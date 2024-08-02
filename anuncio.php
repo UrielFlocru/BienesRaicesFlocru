@@ -8,8 +8,9 @@
         header('location: anuncios.php');
     }
 
+    require 'includes/app.php';
     //Importamos la conexion
-    require 'includes/config/database.php';
+
     $db = conectarDb();
 
     //Creacion del query
@@ -28,7 +29,7 @@
 
 
     //Plantilla header
-    require 'includes/funciones.php';
+
     incluirTemplate('header');
     
 ?>

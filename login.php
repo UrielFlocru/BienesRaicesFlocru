@@ -1,9 +1,11 @@
 <?php
+
+
     //Base de datos
-    require 'includes/config/database.php';
+    require 'includes/app.php';
     $db = conectarDb();
 
-
+    
     $errores = [];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -54,7 +56,6 @@
 
 
 
-    require 'includes/funciones.php';
     incluirTemplate('header',$inicio=false);
 ?>
 
