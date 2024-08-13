@@ -1,0 +1,14 @@
+    <fieldset>
+        <legend>Información General</legend>
+
+        <label for="titulo">Nombre</label>
+        <input type="text" id="nombre" name="vendedor[nombre]" placeholder="Nombre del vendedor(a)" value="<?php echo s($vendedor->nombre); ?>">
+        <label for="titulo">Apellido</label>
+        <input type="text" id="apellido" name="vendedor[apellido]" placeholder="Apellido del vendedor(a)" value="<?php echo s($vendedor->apellido); ?>">
+        <label for="titulo">Telefono</label>
+        <input type="tel" id="telefono" name="vendedor[telefono]" placeholder="Telefono del vendedor(a)" value="<?php echo s($vendedor->telefono); ?>">
+
+
+    </fieldset>
+
+    

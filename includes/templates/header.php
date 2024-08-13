@@ -28,10 +28,10 @@
                 </div>
 
                 <nav class="navegacion">
-                    <a href="nosotros.php">Nosotros</a>
-                    <a href="anuncios.php">Anuncios</a>
-                    <a href="blog.php">Blog</a>
-                    <a href="contacto.php">Contacto</a>
+                    <a href="/bienesraices_Flocru/nosotros.php">Nosotros</a>
+                    <a href="/bienesraices_Flocru/anuncios.php">Anuncios</a>
+                    <a href="/bienesraices_Flocru/blog.php">Blog</a>
+                    <a href="/bienesraices_Flocru/contacto.php">Contacto</a>
                     <?php if ($auth) :?>
                         <a href="admin/index.php">Admin</a>
                         <a href="/bienesraices_Flocru/cerrar-sesion.php">Cerrar Sesion</a>

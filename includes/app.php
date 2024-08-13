@@ -7,7 +7,7 @@
     //Conectar a base de datos
     $db = conectarDb();
 
-    use App\Propiedad;
+    use App\ActiveRecord;
 
-    Propiedad::setDb($db);
+    ActiveRecord::setDb($db);
 
